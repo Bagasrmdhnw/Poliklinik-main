@@ -1,7 +1,7 @@
 # Admin
-- username = pandji
-- pass = pandji1
+- username = segoamgelang
+- pass = Cerdas2001
 
 # Dokter
-- nip = alama
-- password = pandji1
+- nip = 10111
+- password = ganteng
