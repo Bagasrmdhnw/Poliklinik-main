@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 if (!isset($_SESSION['role'])) {
     // Jika pengguna sudah login, tampilkan tombol "Logout"
-    header("Location: index.php?page=pendaftaranPasien");
+    header("Location: index.php?page=pendaftaranPasienBaru");
     exit;
 }
 

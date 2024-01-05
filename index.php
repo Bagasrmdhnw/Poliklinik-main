@@ -29,7 +29,7 @@ include_once("koneksi.php");
                     if (!isset($_SESSION["role"])) {
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.php?page=pendaftaranPasien">Daftar Pasien</a>
+                    <a class="nav-link" aria-current="page" href="index.php?page=pendaftaranPasienBaru">Daftar Pasien</a>
                 </li>
                 <?php
                     }

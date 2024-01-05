@@ -62,7 +62,7 @@
             <div class="card">
                 <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Register</div>
                 <div class="card-body">
-                    <form method="POST" action="index.php?page=pendaftaranPasien">
+                    <form method="POST" action="index.php?page=pendaftaranPasienBaru">
                         <?php
                         if (isset($error)) {
                             echo '<div class="alert alert-danger">' . $error . '
