@@ -12,7 +12,7 @@ if ($role == 'admin') {
 } elseif ($role == 'dokter') {
     header("Location: index.php?page=loginDokter");
 } else {
-    header("Location: index.php?page=pendaftaranPasien");
+    header("Location: index.php?page=pendaftaranPasienBaru");
 }
 exit();
 ?>

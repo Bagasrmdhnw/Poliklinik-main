@@ -22,7 +22,7 @@ if (isset($_POST['simpan'])) {
                                             )");
     }
     echo "<script> 
-                document.location='index.php?page=daftarPoli';
+                document.location='index.php?page=daftarPoliklinik';
                 </script>";
 }
 
@@ -38,7 +38,7 @@ if (isset($_POST['simpan'])) {
             <div class="card">
                 <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Daftar Poli</div>
                 <div class="card-body">
-                    <form method="POST" action="index.php?page=daftarPoli">
+                    <form method="POST" action="index.php?page=daftarPoliklinik">
                         <div class="form-group">
                             <label for="No.RM">No.Rekam Medis</label>
                             <input type="text" readonly name="no_rm" class="form-control" required placeholder="<?php echo $_SESSION['no_rm'] ?>">

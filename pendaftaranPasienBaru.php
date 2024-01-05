@@ -40,7 +40,7 @@
                 $_SESSION['role'] = "pasien";
                 echo "<script>
                 alert('Pendaftaran Berhasil'); 
-                document.location='index.php?page=daftarPoli';
+                document.location='index.php?page=daftarPoliklinik';
                 </script>";
             } else {
                 $error = "Pendaftaran gagal";
@@ -51,7 +51,7 @@
             $_SESSION['name'] = $row['nama'];
             $_SESSION['no_rm'] = $row['no_rm'];
             $_SESSION['role'] = "pasien";
-            header("Location: index.php?page=daftarPoli");
+            header("Location: index.php?page=daftarPoliklinik");
         }
     }
     

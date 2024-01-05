@@ -76,7 +76,7 @@ include_once("koneksi.php");
                         if ($role == "pasien"){
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php?page=daftarPoli">Daftar Poli</a>
+                            <a class="nav-link" aria-current="page" href="index.php?page=daftarPoliklinik">Daftar Poli</a>
                         </li>
                 <?php
                         }
