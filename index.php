@@ -67,7 +67,7 @@ include_once("koneksi.php");
                                     <a class="dropdown-item" href="index.php?page=periksa">Periksa</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="index.php?page=pasien">Riwayat Pasien</a>
+                                    <a class="dropdown-item" href="index.php?page=riwayatpasien">Riwayat Pasien</a>
                                 </li>
                             </ul>
                         </li>
