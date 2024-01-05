@@ -4,6 +4,9 @@
 # Admin 2
 - username = msdki
 - pass = 123456
+# Admin 3
+- username = bagas1332
+- pass = 1234
 
 # Dokter 1
 - nip = 10111
