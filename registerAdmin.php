@@ -23,14 +23,14 @@
                 $insert_query = "INSERT INTO user (nama, username, password) VALUES ('$nama_admin', '$username', '$hashed_password')";
                 if (mysqli_query($mysqli, $insert_query)) {
                     echo "<script>
-                    alert('Pendaftaran Berhasil'); 
-                    document.location='index.php?page=loginUser';
+                    alert('Pendaftaran Berhasil Silahkan Login'); 
+                    document.location='index.php?page=loginAdmin';
                     </script>";
                 } else {
-                    $error = "Pendaftaran gagal";
+                    $error = "Pendaftaran gagal coba lagi";s
                 }
             } else {
-                $error = "Username sudah digunakan";
+                $error = "Username sudah pernah digunakan";
             }
         } else {
             $error = "Password tidak cocok";
@@ -41,9 +41,9 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Register</div>
+                <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Register Admin</div>
                 <div class="card-body">
-                    <form method="POST" action="index.php?page=registerUser">
+                    <form method="POST" action="index.php?page=registerAdmin">
                         <?php
                         if (isset($error)) {
                             echo '<div class="alert alert-danger">' . $error . '
@@ -70,11 +70,11 @@
                             <input type="password" name="confirm_password" class="form-control" required placeholder="Masukkan password konfirmasi">
                         </div>
                         <div class="text-center mt-3">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
                         </div>
                     </form>
                     <div class="text-center">
-                        <p class="mt-3">Sudah Punya Akun? <a href="index.php?page=loginUser">Login</a></p>
+                        <p class="mt-3">Sudah Punya Akun? <a href="index.php?page=loginAdmin">Login</a></p>
                     </div>
                 </div>
             </div>

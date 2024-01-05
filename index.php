@@ -10,13 +10,13 @@ include_once("koneksi.php");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistem Informasi Poliklinik</title>
+    <title>Poliklinik Udinus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Sistem Informasi Poliklinik</a>
+        <a class="navbar-brand" href="#">Poliklinik Udinus</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,7 +29,7 @@ include_once("koneksi.php");
                     if (!isset($_SESSION["role"])) {
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.php?page=pendaftaranPasienBaru">Daftar Pasien</a>
+                    <a class="nav-link" aria-current="page" href="index.php?page=pendaftaranPasienBaru">Daftar Pasien Baru</a>
                 </li>
                 <?php
                     }
@@ -42,7 +42,7 @@ include_once("koneksi.php");
                         
                 ?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Data Master</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Master Data</a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a class="dropdown-item" href="index.php?page=obat">Obat</a>
@@ -61,7 +61,7 @@ include_once("koneksi.php");
                         if ($role == "dokter"){
                         ?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Data Master</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Master Data</a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a class="dropdown-item" href="index.php?page=periksa">Periksa</a>
@@ -102,7 +102,7 @@ include_once("koneksi.php");
                         <a class="nav-link btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Login</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="index.php?page=loginUser">Admin</a>
+                                <a class="dropdown-item" href="index.php?page=loginAdmin">Admin</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="index.php?page=loginDokter">Dokter</a>
@@ -123,13 +123,13 @@ include_once("koneksi.php");
             if (isset($_GET['page'])) {
                 include($_GET['page'] . ".php");
             } else {
-                echo "<br><h2>Selamat Datang di Sistem Informasi Poliklinik";
+                echo "<br><h2>Selamat Datang di Poliklinik Udinus";
 
                 if (isset($_SESSION['role'])) {
                     //jika sudah login tampilkan username
                     echo ", " . $_SESSION['name'] . "</h2><hr>";
                 } else {
-                    echo "</h2><hr>Silakan Login untuk menggunakan sistem. Jika belum memiliki akun silakan Register terlebih dahulu.";
+                    echo "</h2><hr>Silakan Login untuk menggunakan Website. Jika belum memiliki akun silakan Register / Mendaftar terlebih dahulu.";
                 }
             }
         ?>

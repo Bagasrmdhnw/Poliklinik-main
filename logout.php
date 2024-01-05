@@ -8,7 +8,7 @@ if (isset($_SESSION['role'])) {
     session_destroy();
 }
 if ($role == 'admin') {
-    header("Location: index.php?page=loginUser");
+    header("Location: index.php?page=loginAdmin");
 } elseif ($role == 'dokter') {
     header("Location: index.php?page=loginDokter");
 } else {

@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 if (!isset($_SESSION['username'])) {
     // Jika pengguna sudah login, tampilkan tombol "Logout"
-    header("Location: index.php?page=loginUser");
+    header("Location: index.php?page=loginAdmin");
     exit;
 }
 

@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="card">
                 <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Login</div>
                 <div class="card-body">
-                    <form method="POST" action="index.php?page=loginUser">
+                    <form method="POST" action="index.php?page=loginAdmin">
                         <?php
                         if (isset($error)) {
                             echo '<div class="alert alert-danger">' . $error . '
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                     </form>
                     <div class="text-center">
-                        <p class="mt-3">Belum punya akun? <a href="index.php?page=registerUser">Register</a></p>
+                        <p class="mt-3">Belum punya akun? <a href="index.php?page=registerAdmin">Register</a></p>
                     </div>
                 </div>
             </div>

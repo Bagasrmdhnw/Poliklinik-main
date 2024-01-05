@@ -60,7 +60,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Register</div>
+                <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Register Pasien</div>
                 <div class="card-body">
                     <form method="POST" action="index.php?page=pendaftaranPasienBaru">
                         <?php
@@ -89,7 +89,7 @@
                             <input type="text" name="no_hp" class="form-control" required placeholder="Masukkan No.HP">
                         </div>
                         <div class="text-center mt-3">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
                         </div>
                     </form>
                 </div>
