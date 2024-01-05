@@ -23,7 +23,7 @@ if (isset($_POST['simpan'])) {
                                             )");
     }
     echo "<script> 
-                document.location='index.php?page=poli';
+                document.location='index.php?page=poliklinik';
                 </script>";
 }
 if (isset($_GET['aksi'])) {
@@ -32,7 +32,7 @@ if (isset($_GET['aksi'])) {
     }
 
     echo "<script> 
-                document.location='index.php?page=poli';
+                document.location='index.php?page=poliklinik';
                 </script>";
 }
 ?>
@@ -106,8 +106,8 @@ if (isset($_GET['aksi'])) {
                     <td><?php echo $data['nama_poli'] ?></td>
                     <td><?php echo $data['keterangan'] ?></td>
                     <td>
-                        <a class="btn btn-success rounded-pill px-3" href="index.php?page=poli&id=<?php echo $data['id'] ?>">Ubah</a>
-                        <a class="btn btn-danger rounded-pill px-3" href="index.php?page=poli&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
+                        <a class="btn btn-success rounded-pill px-3" href="index.php?page=poliklinik&id=<?php echo $data['id'] ?>">Ubah</a>
+                        <a class="btn btn-danger rounded-pill px-3" href="index.php?page=poliklinik&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
                     </td>
                 </tr>
             <?php
