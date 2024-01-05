@@ -58,7 +58,7 @@ if (isset($_POST['simpan'])) {
                             </div>
                         </div>
                         <div class="form-group mt-1">
-                            <label for="jadwalDokter">Jadwal Poli</label>
+                            <label for="jadwalDokter">Jadwal Dokter</label>
                             <select class="form-select" aria-label="Disabled select example" name="new_id_jadwal" id="jadwalDokter">
                                 <option disabled selected>Dokter dan Jadwal</option>
                                 <?php
@@ -142,7 +142,7 @@ if (isset($_POST['simpan'])) {
         var xhr = new XMLHttpRequest();
 
         // Tentukan metode, URL, dan apakah permintaan bersifat asynchronous
-        xhr.open('GET', 'getDokterJadwal.php?idpoli=' + selectedPoli, true);
+        xhr.open('GET', 'JadwalDokter.php?idpoli=' + selectedPoli, true);
         
         //atur header agar respon diharapkan html
         xhr.setRequestHeader('Content-Type', 'text/html');
