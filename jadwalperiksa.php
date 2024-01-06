@@ -145,7 +145,7 @@ if (isset($_GET['aksi'])) {
         <tbody>
             <!-- Kode PHP untuk menampilkan semua isi dari tabel urut -->
             <?php
-            $result = mysqli_query($mysqli, "SELECT * FROM jadwal_periksa");
+            $result = mysqli_query($mysqli, "SELECT * FROM jadwal_periksa WHERE id_dokter = '" . $_SESSION['id_dokter'] . "'");
             $no = 1;
             while ($data = mysqli_fetch_array($result)) {
             ?>
