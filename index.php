@@ -45,13 +45,13 @@ include_once("koneksi.php");
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Master Data</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="index.php?page=obat">Obat</a>
+                                    <a class="dropdown-item" href="index.php?page=obat">Data Obat</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="index.php?page=dokter">Dokter</a>
+                                    <a class="dropdown-item" href="index.php?page=dokter">Data Dokter</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="index.php?page=poliklinik">Poli</a>
+                                    <a class="dropdown-item" href="index.php?page=poliklinik">Data Poliklinik</a>
                                 </li>
                             </ul>
                         </li>
@@ -64,10 +64,13 @@ include_once("koneksi.php");
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Master Data</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="index.php?page=periksa">Periksa</a>
+                                    <a class="dropdown-item" href="index.php?page=periksa">Data Pasien Periksa</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="index.php?page=riwayatpasien">Riwayat Pasien</a>
+                                    <a class="dropdown-item" href="index.php?page=riwayatpasien">Data Riwayat Pasien</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="index.php?page=jadwalperiksa">Data Jadwal Periksa</a>
                                 </li>
                             </ul>
                         </li>
@@ -76,7 +79,7 @@ include_once("koneksi.php");
                         if ($role == "pasien"){
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php?page=daftarPoliklinik">Daftar Poli</a>
+                            <a class="nav-link" aria-current="page" href="index.php?page=daftarPoliklinik">Daftar Poliklinik</a>
                         </li>
                 <?php
                         }
@@ -102,10 +105,10 @@ include_once("koneksi.php");
                         <a class="nav-link btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Login</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="index.php?page=loginAdmin">Admin</a>
+                                <a class="dropdown-item" href="index.php?page=loginAdmin">Login Admin</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="index.php?page=loginDokter">Dokter</a>
+                                <a class="dropdown-item" href="index.php?page=loginDokter">Login Dokter</a>
                             </li>
                         </ul>
                     </li>
