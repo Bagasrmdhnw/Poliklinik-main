@@ -72,6 +72,9 @@ include_once("koneksi.php");
                                 <li>
                                     <a class="dropdown-item" href="index.php?page=jadwalperiksa">Data Jadwal Periksa</a>
                                 </li>
+                                <li>
+                                    <a class="dropdown-item" href="index.php?page=jadwalperiksa">Jadwal Periksa</a>
+                                </li>
                             </ul>
                         </li>
                 <?php
