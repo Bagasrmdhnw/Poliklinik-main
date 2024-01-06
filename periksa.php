@@ -45,7 +45,7 @@ if (isset($_GET['aksi'])) {
     }
 
     echo "<script> 
-                document.location='index.php?page=periksa';
+                document.location='index.php?page=riwayatpasien';
                 </script>";
 }
 
