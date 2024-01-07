@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Redirect ke halaman profile dokter setelah perubahan
-    header("Location: index.php?page=profiledokter");
+    header("Location: index.php?page=logout");
     exit();
 }
 
