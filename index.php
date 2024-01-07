@@ -64,6 +64,9 @@ include_once("koneksi.php");
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Master Data</a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a class="dropdown-item" href="index.php?page=profiledokter">Profil Saya</a>
+                                </li>
+                                <li>
                                     <a class="dropdown-item" href="index.php?page=periksa">Data Pasien Periksa</a>
                                 </li>
                                 <li>
