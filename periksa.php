@@ -50,13 +50,23 @@ if (isset($_GET['aksi'])) {
 }
 
 ?>
-<h2>Periksa Pasien</h2>
-<br>
-<div class="container">
-    <!--Form Input Data-->
-    <?php
-        if (isset($_GET["id"])) {
-    ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periksa Pasien</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <br>
+    <h2>Periksa Pasien</h2>
+    <br>
+    <div class="container">
+        <!--Form Input Data-->
+        <?php if (isset($_GET["id"])) { ?>
             <form class="form row" method="POST" action="" name="myForm" onsubmit="return(validate());">
                 <!-- Kode php untuk menghubungkan form dengan database -->
                 <?php
@@ -65,7 +75,7 @@ if (isset($_GET['aksi'])) {
                     $ambil = mysqli_query($mysqli, "SELECT ps.*
                                                         FROM pasien AS ps
                                                             WHERE ps.id = '" . $_GET['id'] . "'"
-                                                        );
+                    );
                     while ($row = mysqli_fetch_array($ambil)) {
                         $nama_pasien = $row['nama'];
                     }
@@ -99,19 +109,19 @@ if (isset($_GET['aksi'])) {
                     </div>
                 </div>
                 <div class="row mt-1">
-                <label for="inputObat" class="form-label fw-bold">
-                    Obat
-                </label>
-                <div>
-                    <select class="form-select" aria-label="Default select example" name="new_id_obat" id ="inputObat">
-                        <?php
+                    <label for="inputObat" class="form-label fw-bold">
+                        Obat
+                    </label>
+                    <div>
+                        <select class="form-select" aria-label="Default select example" name="new_id_obat" id="inputObat">
+                            <?php
                             $ambilObat = mysqli_query($mysqli, "SELECT * FROM obat");
                             while ($row = mysqli_fetch_array($ambilObat)) {
                                 echo "<option value='" . $row["id"] . "'>" . $row["nama_obat"] . "</option>";
                             }
-                        ?>
-                    </select>
-                </div>
+                            ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="row mt-3">
                     <div class=col>
@@ -119,46 +129,47 @@ if (isset($_GET['aksi'])) {
                     </div>
                 </div>
             </form>
-    <?php
-        }
-    ?>
-    <br>
-    <br>
-    <!-- Table-->
-    <table class="table table-hover">
-        <!--thead atau baris judul-->
-        <thead>
-            <tr>
-                <th scope="col">No. Antrian</th>
-                <th scope="col">Pasien</th>
-                <th scope="col">Keluhan</th>
-                <th scope="col">Aksi</th>
-            </tr>
-        </thead>
-        <!--tbody berisi isi tabel sesuai dengan judul atau head-->
-        <tbody>
-            <!-- Kode PHP untuk menampilkan semua isi dari tabel urut-->
-            <?php
-            $result = mysqli_query($mysqli, "SELECT ps.id, ps.nama AS nama_pasien, dp.id AS dpid, dp.keluhan, dp.no_antrian
-                                                FROM daftar_poli AS dp
-                                                    JOIN pasien AS ps ON ps.id = dp.id_pasien
-                                                    JOIN jadwal_periksa AS jp ON dp.id_jadwal = dp.id_jadwal
-                                                    JOIN dokter AS dok ON jp.id_dokter = dok.id
-                                                WHERE  dp.id_jadwal = jp.id AND jp.id_dokter = '".$_SESSION['id_dokter']."'
-                                                    ");
-            while ($data = mysqli_fetch_array($result)) {
-            ?>
+        <?php } ?>
+        <br>
+        <!-- Table-->
+        <table class="table table-hover">
+            <!--thead atau baris judul-->
+            <thead>
                 <tr>
-                    <td><?php echo $data['no_antrian'] ?></td>
-                    <td><?php echo $data['nama_pasien'] ?></td>
-                    <td><?php echo $data['keluhan'] ?></td>
-                    <td>
-                        <a class="btn btn-success rounded-pill px-3" href="index.php?page=periksa&id=<?php echo $data['id'] ?>&dpid=<?php echo $data['dpid'] ?>">Periksa</a>
-                    </td>
+                    <th scope="col">No. Antrian</th>
+                    <th scope="col">Nama Pasien</th>
+                    <th scope="col">Keluhan</th>
+                    <th scope="col">Aksi</th>
                 </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <!--tbody berisi isi tabel sesuai dengan judul atau head-->
+            <tbody>
+                <!-- Kode PHP untuk menampilkan semua isi dari tabel urut-->
+                <?php
+                $result = mysqli_query($mysqli, "SELECT ps.id, ps.nama AS nama_pasien, dp.id AS dpid, dp.keluhan, dp.no_antrian
+                                                    FROM daftar_poli AS dp
+                                                        JOIN pasien AS ps ON ps.id = dp.id_pasien
+                                                        JOIN jadwal_periksa AS jp ON dp.id_jadwal = dp.id_jadwal
+                                                        JOIN dokter AS dok ON jp.id_dokter = dok.id
+                                                    WHERE  dp.id_jadwal = jp.id AND jp.id_dokter = '" . $_SESSION['id_dokter'] . "'
+                                                    ");
+                while ($data = mysqli_fetch_array($result)) {
+                ?>
+                    <tr>
+                        <td><?php echo $data['no_antrian'] ?></td>
+                        <td><?php echo $data['nama_pasien'] ?></td>
+                        <td><?php echo $data['keluhan'] ?></td>
+                        <td>
+                            <a class="btn btn-success rounded-pill px-3" href="index.php?page=periksa&id=<?php echo $data['id'] ?>&dpid=<?php echo $data['dpid'] ?>">Periksa</a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
