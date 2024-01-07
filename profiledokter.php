@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 if (!isset($_SESSION['role'])) {
     // Jika pengguna sudah login, tampilkan tombol "Logout"
-    header("Location: index.php?page=loginDokter");
+    header("Location: index.php?page=profiledokter");
     exit;
 }
 
@@ -16,13 +16,26 @@ $id_dokter = $_SESSION['id_dokter'];
 $query = "SELECT * FROM dokter WHERE id = $id_dokter";
 $result = mysqli_query($mysqli, $query);
 
-// Periksa apakah query berhasil dijalankan
 if (!$result) {
-    die("Query error: " . mysqli_error($mysqli));
+    die("Query Error: " . mysqli_error($mysqli));
 }
 
-// Ambil data dokter
+// Ambil data dokter sebagai array associative
 $dokter = mysqli_fetch_assoc($result);
+
+// Ambil data poli untuk dropdown
+$query_poli = "SELECT id, nama_poli FROM poli";
+$result_poli = mysqli_query($mysqli, $query_poli);
+
+if (!$result_poli) {
+    die("Query Poli Error: " . mysqli_error($mysqli));
+}
+
+$poli_options = "";
+while ($row = mysqli_fetch_assoc($result_poli)) {
+    $selected = ($row['id'] == $dokter['id_poli']) ? 'selected' : '';
+    $poli_options .= "<option value='{$row['id']}' $selected>{$row['nama_poli']}</option>";
+}
 
 // Proses pembaruan data jika ada form submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -61,8 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$update_poli_result) {
         die("Update Poli Error: " . mysqli_error($mysqli));
     }
+
     // Redirect ke halaman profile dokter setelah perubahan
-    header("Location: index.php?page=loginDokter");
+    header("Location: index.php?page=profiledokter");
     exit();
 }
 
@@ -76,30 +90,53 @@ mysqli_close($mysqli);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Dokter</title>
+    <!-- Tambahkan link stylesheet Bootstrap di sini -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Profil Dokter</h1>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Profil Dokter</h1>
 
-    <form method="POST" action="">
-        <label for="nama">Nama:</label>
-        <input type="text" name="nama" value="<?php echo $dokter['nama']; ?>" required><br>
+        <form method="POST" action="">
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" class="form-control" name="nama" value="<?php echo $dokter['nama']; ?>" required>
+            </div>
 
-        <label for="nip">NIP:</label>
-        <input type="text" name="nip" value="<?php echo $dokter['nip']; ?>" required><br>
+            <div class="form-group">
+                <label for="nip">NIP:</label>
+                <input type="text" class="form-control" name="nip" value="<?php echo $dokter['nip']; ?>" required>
+            </div>
 
-        <label for="alamat">Alamat:</label>
-        <input type="text" name="alamat" value="<?php echo $dokter['alamat']; ?>" required><br>
+            <div class="form-group">
+                <label for="alamat">Alamat:</label>
+                <input type="text" class="form-control" name="alamat" value="<?php echo $dokter['alamat']; ?>" required>
+            </div>
 
-        <label for="no_hp">No HP:</label>
-        <input type="text" name="no_hp" value="<?php echo $dokter['no_hp']; ?>" required><br>
+            <div class="form-group">
+                <label for="no_hp">No HP:</label>
+                <input type="text" class="form-control" name="no_hp" value="<?php echo $dokter['no_hp']; ?>" required>
+            </div>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password"><br>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" name="password">
+            </div>
 
-        <label for="id_poli">ID Poli:</label>
-        <input type="text" name="id_poli" value="<?= $dokter['id_poli'] ?>"><br>
+            <div class="form-group">
+                <label for="id_poli">Poli:</label>
+                <select class="form-control" name="id_poli">
+                    <?= $poli_options ?>
+                </select>
+            </div>
 
-        <input type="submit" value="Simpan">
-    </form>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+    </div>
+
+    <!-- Tambahkan script Bootstrap di sini -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
