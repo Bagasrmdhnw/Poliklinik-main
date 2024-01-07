@@ -34,50 +34,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Dokter</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Dokter</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-</head>
+    <body>
 
-<body>
-
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Login Dokter</div>
-                    <div class="card-body">
-                        <form method="POST" action="index.php?page=loginDokter">
-                            <?php
-                            if (isset($error)) {
-                                echo '<div class="alert alert-danger">' . $error . '
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>';
-                            }
-                            ?>
-                            <div class="form-group">
-                                <label for="nip">NIP</label>
-                                <input type="text" name="nip" class="form-control" required placeholder="Masukkan NIP anda">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control" required placeholder="Masukkan password anda">
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-block">Login</button>
-                            </div>
-                        </form>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Login Dokter</div>
+                        <div class="card-body">
+                            <form method="POST" action="index.php?page=loginDokter">
+                                <?php
+                                if (isset($error)) {
+                                    echo '<div class="alert alert-danger">' . $error . '
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>';
+                                }
+                                ?>
+                                <div class="form-group">
+                                    <label for="nip">NIP</label>
+                                    <input type="text" name="nip" class="form-control" required placeholder="Masukkan NIP anda">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" class="form-control" required placeholder="Masukkan password anda">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-</body>
-
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </body>
 </html>

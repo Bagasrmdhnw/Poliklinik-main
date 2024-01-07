@@ -30,76 +30,86 @@ if (isset($_POST['simpan'])) {
 ?>
 
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Poli</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Daftar Poli</div>
-                <div class="card-body">
-                    <form method="POST" action="index.php?page=daftarPoliklinik">
-                        <div class="form-group">
-                            <label for="No.RM">No.Rekam Medis</label>
-                            <input type="text" readonly name="no_rm" class="form-control" required placeholder="<?php echo $_SESSION['no_rm'] ?>">
-                        </div>
-                        <div class="form-group mt-1">
-                            <label for="inputPoli">Pilih Poli</label>
-                            <div>
-                                <select class="form-select" aria-label="Default select example" name="new_id_poli" id ="inputPoli">
-                                    <option selected>Buka untuk Pilih Poli</option>
-                                    <?php
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Daftar Poli</div>
+                    <div class="card-body">
+                        <form method="POST" action="index.php?page=daftarPoliklinik">
+                            <div class="form-group">
+                                <label for="No.RM">No.Rekam Medis</label>
+                                <input type="text" readonly name="no_rm" class="form-control" required placeholder="<?php echo $_SESSION['no_rm'] ?>">
+                            </div>
+                            <div class="form-group mt-1">
+                                <label for="inputPoli">Pilih Poli</label>
+                                <div>
+                                    <select class="form-select" aria-label="Default select example" name="new_id_poli" id="inputPoli">
+                                        <option selected>Buka untuk Pilih Poli</option>
+                                        <?php
                                         $ambilPoli = mysqli_query($mysqli, "SELECT * FROM poli");
                                         while ($row = mysqli_fetch_array($ambilPoli)) {
                                             echo "<option value='" . $row["id"] . "'>" . $row["nama_poli"] . "</option>";
                                         }
-                                    ?>
-                                </select>
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group mt-1">
-                            <label for="jadwalDokter">Jadwal Dokter</label>
-                            <select class="form-select" aria-label="Disabled select example" name="new_id_jadwal" id="jadwalDokter">
-                                <option disabled selected>Dokter dan Jadwal</option>
-                                <?php
+                            <div class="form-group mt-1">
+                                <label for="jadwalDokter">Jadwal Dokter</label>
+                                <select class="form-select" aria-label="Disabled select example" name="new_id_jadwal" id="jadwalDokter">
+                                    <option disabled selected>Dokter dan Jadwal</option>
+                                    <?php
                                     $ambilDokter = mysqli_query($mysqli, "SELECT po.*, dk.*, jp.*, jp.id AS jp_id FROM poli AS po 
                                                                             JOIN dokter AS dk ON po.id = dk.id_poli
                                                                             JOIN jadwal_periksa AS jp ON dk.id = jp.id_dokter");
                                     while ($row = mysqli_fetch_array($ambilDokter)) {
-                                        echo "<option value='" . $row["jp_id"] . "'>" . $row["nama"] .'-'.$row["hari"].'-'.$row["nama_poli"]."</option>";
+                                        echo "<option value='" . $row["jp_id"] . "'>" . $row["nama"] . '-' . $row["hari"] . '-' . $row["nama_poli"] . "</option>";
                                     }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputKeluhan">Keluhan</label>
-                            <textarea class="form-control" name="keluhan" id="inputKeluhan" rows="3"></textarea>
-                        </div>
-                        <div class="text-center mt-3">
-                            <button type="submit" class="btn btn-primary btn-block" name="simpan">Daftar</button>
-                        </div>
-                    </form>
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputKeluhan">Keluhan</label>
+                                <textarea class="form-control" name="keluhan" id="inputKeluhan" rows="3"></textarea>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn btn-primary btn-block" name="simpan">Daftar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-8">
-            <table class="table table-hover">
-                <!--thead atau baris judul-->
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Poli</th>
-                        <th scope="col">Dokter</th>
-                        <th scope="col">Hari</th>
-                        <th scope="col">Mulai</th>
-                        <th scope="col">Selesai</th>
-                        <th scope="col">Antrian</th>
-                    </tr>
-                </thead>
-                <!--tbody berisi isi tabel sesuai dengan judul atau head-->
-                <tbody>
-                <?php
-                    $result = mysqli_query($mysqli, "SELECT 
+            <div class="col-8">
+                <table class="table table-hover">
+                    <!--thead atau baris judul-->
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Poli</th>
+                            <th scope="col">Dokter</th>
+                            <th scope="col">Hari</th>
+                            <th scope="col">Mulai</th>
+                            <th scope="col">Selesai</th>
+                            <th scope="col">Antrian</th>
+                        </tr>
+                    </thead>
+                    <!--tbody berisi isi tabel sesuai dengan judul atau head-->
+                    <tbody>
+                        <?php
+                        $result = mysqli_query($mysqli, "SELECT 
                                                         pol.nama_poli AS nama_poli,
                                                         dok.nama AS nama_dokter,
                                                         jp.hari AS hari,
@@ -113,49 +123,53 @@ if (isset($_POST['simpan'])) {
                                                             JOIN poli AS pol ON dok.id_poli = pol.id
                                                             WHERE ps.id = '" . $_SESSION['id_pasien'] . "'
                                                     ");
-                    $no = 1;
-                    while ($data = mysqli_fetch_array($result)) {
-                ?>
-                    <tr>
-                        <th scope="row"><?php echo $no++ ?></th>
-                        <td><?php echo $data['nama_poli'] ?></td>
-                        <td><?php echo $data['nama_dokter'] ?></td>
-                        <td><?php echo $data['hari'] ?></td>
-                        <td><?php echo $data['jam_mulai'] ?></td>
-                        <td><?php echo $data['jam_selesai'] ?></td>
-                        <td><?php echo $data['no_antrian'] ?></td>
-                    </tr>
-                <?php
-                    }
-                ?>
-                </tbody>
-            </table>
+                        $no = 1;
+                        while ($data = mysqli_fetch_array($result)) {
+                        ?>
+                            <tr>
+                                <th scope="row"><?php echo $no++ ?></th>
+                                <td><?php echo $data['nama_poli'] ?></td>
+                                <td><?php echo $data['nama_dokter'] ?></td>
+                                <td><?php echo $data['hari'] ?></td>
+                                <td><?php echo $data['jam_mulai'] ?></td>
+                                <td><?php echo $data['jam_selesai'] ?></td>
+                                <td><?php echo $data['no_antrian'] ?></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    document.getElementById('inputPoli').addEventListener('change', function() {
-        var selectedPoli = this.value;
+    <script>
+        document.getElementById('inputPoli').addEventListener('change', function() {
+            var selectedPoli = this.value;
 
-        // Buat objek XMLHttpRequest
-        var xhr = new XMLHttpRequest();
+            // Buat objek XMLHttpRequest
+            var xhr = new XMLHttpRequest();
 
-        // Tentukan metode, URL, dan apakah permintaan bersifat asynchronous
-        xhr.open('GET', 'JadwalDokter.php?idpoli=' + selectedPoli, true);
-        
-        //atur header agar respon diharapkan html
-        xhr.setRequestHeader('Content-Type', 'text/html');
+            // Tentukan metode, URL, dan apakah permintaan bersifat asynchronous
+            xhr.open('GET', 'JadwalDokter.php?idpoli=' + selectedPoli, true);
 
-        // Tambahkan fungsi callback untuk menangani respons
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                // Perbarui elemen select Dokter dan Jadwal dengan data yang diterima dari server
-                document.getElementById('jadwalDokter').innerHTML = xhr.responseText;
-            }
-        };
+            //atur header agar respon diharapkan html
+            xhr.setRequestHeader('Content-Type', 'text/html');
 
-        // Kirim permintaan
-        xhr.send();
-    });
-</script>
+            // Tambahkan fungsi callback untuk menangani respons
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Perbarui elemen select Dokter dan Jadwal dengan data yang diterima dari server
+                    document.getElementById('jadwalDokter').innerHTML = xhr.responseText;
+                }
+            };
+
+            // Kirim permintaan
+            xhr.send();
+        });
+    </script>
+
+</body>
+
+</html>

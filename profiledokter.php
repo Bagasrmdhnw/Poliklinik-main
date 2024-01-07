@@ -95,7 +95,9 @@ mysqli_close($mysqli);
 </head>
 <body>
     <div class="container">
+        <br>
         <h1 class="mt-5 mb-4">Profil Dokter</h1>
+        <br>
 
         <form method="POST" action="">
             <div class="form-group">
