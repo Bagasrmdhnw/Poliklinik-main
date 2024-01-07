@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 06:16 PM
+-- Generation Time: Jan 07, 2024 at 07:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,7 +50,14 @@ INSERT INTO `daftar_poli` (`id`, `id_pasien`, `id_jadwal`, `keluhan`, `no_antria
 (8, 8, 3, 'Mata Merah , Nyeri', 8),
 (9, 9, 7, 'Check up rutin kandungan', 9),
 (10, 10, 8, 'Pusing dan Batuk', 10),
-(11, 11, 9, 'Check up rutin', 11);
+(11, 11, 9, 'Check up rutin', 11),
+(12, 12, 3, 'Mata Berair dan Merah', 12),
+(13, 13, 5, 'Cabut Gigi', 13),
+(14, 14, 8, 'Panas Dingin', 14),
+(15, 15, 4, 'Telinga Berdenging', 15),
+(16, 16, 6, 'Punggung Nyeri ', 16),
+(17, 17, 1, 'Muntah Muntah , sakit perut', 17),
+(19, 19, 4, 'Sakit dibagian dalam telinga', 18);
 
 -- --------------------------------------------------------
 
@@ -74,12 +81,16 @@ INSERT INTO `detail_periksa` (`id`, `id_periksa`, `id_obat`) VALUES
 (3, 3, 2),
 (4, 4, 3),
 (5, 5, 2),
-(6, 6, 1),
 (7, 7, 6),
 (8, 8, 5),
 (9, 9, 6),
 (10, 10, 4),
-(11, 11, 3);
+(11, 11, 3),
+(14, 14, 6),
+(15, 15, 9),
+(19, 20, 4),
+(24, 29, 6),
+(25, 15, 4);
 
 -- --------------------------------------------------------
 
@@ -102,15 +113,16 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`id`, `nama`, `nip`, `password`, `alamat`, `no_hp`, `id_poli`) VALUES
-(1, 'Dr. Farhan', '10111', '$2y$10$SHxyzQXGXUi29IqeAHanUev9HhLPeXxBPmIqPW3v1Zm0yjHSoUW.O', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '081462226835', 1),
+(1, 'Dr. Farhan', '10111', '$2y$10$O3JvTfZwaN0ZRaaYCbbsWOr7GiGeANa2i9ko0tqPxeuH9ZJizfIh.', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '081462226835', 1),
 (2, 'Dr. Sri winarno', '10112', '$2y$10$mxcJ8dEe0wPZ5rp2l/plSezvmpXli.gaw/yi7zNzQHssM8knP.CbC', 'Jl. Bandungan RT 02 RW 01 no.22 Kec.Gajahmungkur Kab.Semarang', '081462226836', 2),
 (3, 'Dr. Ricardus', '10113', '$2y$10$DjovYT7OQ0abQzYm5hqm2uqqwtJrwVHdD0GztmMhOI9Ryw3nyNljq', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang Timur', '081462226837', 3),
 (4, 'Dr. Minari', '10114', '$2y$10$3rEpqWpKlZHX05VNw7SSFuU6qoP/XTz5biVj6x.0g7r1OIWsaDNhG', 'Jl. Bandungan RT 02 RW 01 no.22 Kec.Gajahmungkur Kab.Semarang Timur', '081462226838', 4),
 (5, 'Dr. Evi Nirmala S', '10115', '$2y$10$d4cWgMoAQCYC2fydvXhHDOYJq9rOnT7IPN9yyxDFGBnUbd7KF/sGG', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang Barat', '081462226839', 5),
-(6, 'Dr . Rizal', '10116', '$2y$10$62ZHLF.LO0D.fjdC0SM3fu51u.8A.4zBb3Kv2Vg12juLowoQAT7MW', 'Jl. Bandungan RT 02 RW 01 no.22 Kec.Gajahmungkur Kab.Semarang Barat', '081462226840', 6),
+(6, 'Dr . Rizal Subakri', '10116', '$2y$10$ZezvxQ3B8syXDTC7FRdDr.Mkz6lxf3jAwZxIS3P47OrG6KI5e10Jm', 'Jl. Bandungan RT 02 RW 01 no.22 Kec.Gajahmungkur Kab.Semarang Barat', '081462226849', 6),
 (7, 'Dr. Tania', '10117', '$2y$10$jVbQbapY1KQi4TnF.uwdXuOUxFTm/1t.m.rSL8B5HFkYRwSYkPsNS', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '081462226841', 7),
 (8, 'Dr .Ina Risada', '10118', '$2y$10$VFXn5tF3z.E74OTAVmlcLOXzcppyukTGsvYWveWuht/qjJ1vY5Y6K', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '081462226837', 7),
-(9, 'Dr. Niken', '10119', '$2y$10$hjKyXxqFZyvhUaa0lxL3deH6P3uNF8daMGvryhEAUUNRJ1STPkLsS', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '081462226835', 1);
+(9, 'Dr. Niken', '10119', '$2y$10$hjKyXxqFZyvhUaa0lxL3deH6P3uNF8daMGvryhEAUUNRJ1STPkLsS', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '081462226835', 1),
+(12, 'Dr.Budiman', '10120', '$2y$10$re24QN13IS6Vd9i4G0.La.V1.xSRGD4BWs31VAYNGrpq9x0HuEWDK', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '081462226835', 3);
 
 -- --------------------------------------------------------
 
@@ -123,23 +135,27 @@ CREATE TABLE `jadwal_periksa` (
   `id_dokter` int(11) NOT NULL,
   `hari` enum('Senin','Selasa','Rabu','Kamis','Jumat','Sabtu') NOT NULL,
   `jam_mulai` time NOT NULL,
-  `jam_selesai` time NOT NULL
+  `jam_selesai` time NOT NULL,
+  `aksi` char(1) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jadwal_periksa`
 --
 
-INSERT INTO `jadwal_periksa` (`id`, `id_dokter`, `hari`, `jam_mulai`, `jam_selesai`) VALUES
-(1, 1, 'Senin', '08:00:00', '10:00:00'),
-(2, 2, 'Selasa', '13:00:00', '15:00:00'),
-(3, 3, 'Rabu', '10:00:00', '12:00:00'),
-(4, 4, 'Kamis', '13:00:00', '15:00:00'),
-(5, 5, 'Kamis', '08:00:00', '11:00:00'),
-(6, 6, 'Jumat', '13:00:00', '15:30:00'),
-(7, 7, 'Sabtu', '08:00:00', '10:00:00'),
-(8, 9, 'Rabu', '08:00:00', '10:00:00'),
-(9, 8, 'Selasa', '08:00:00', '10:00:00');
+INSERT INTO `jadwal_periksa` (`id`, `id_dokter`, `hari`, `jam_mulai`, `jam_selesai`, `aksi`, `status`) VALUES
+(1, 1, 'Senin', '08:00:00', '10:00:00', 'Y', 'Aktif'),
+(2, 2, 'Selasa', '13:00:00', '15:00:00', 'Y', 'Aktif'),
+(3, 3, 'Rabu', '10:00:00', '12:00:00', 'Y', 'Aktif'),
+(4, 4, 'Kamis', '13:00:00', '15:00:00', 'Y', 'Aktif'),
+(5, 5, 'Kamis', '08:00:00', '11:00:00', 'Y', 'Aktif'),
+(6, 6, 'Jumat', '13:00:00', '15:30:00', 'Y', 'Aktif'),
+(7, 7, 'Sabtu', '08:00:00', '10:00:00', 'Y', 'Aktif'),
+(8, 9, 'Rabu', '08:00:00', '10:00:00', 'Y', 'Aktif'),
+(9, 8, 'Selasa', '08:00:00', '10:00:00', 'Y', 'Aktif'),
+(12, 7, 'Sabtu', '12:45:00', '15:00:00', 'Y', 'Aktif'),
+(15, 1, 'Senin', '12:00:00', '14:00:00', 'N', 'Tidak Aktif');
 
 -- --------------------------------------------------------
 
@@ -167,7 +183,9 @@ INSERT INTO `obat` (`id`, `nama_obat`, `kemasan`, `harga`) VALUES
 (6, 'Alopurinol', 'Tablet', 16000),
 (7, 'Aminofilin', 'Ampul', 8000),
 (8, 'Clobazam ', 'Blister', 50000),
-(9, 'Bromheksin', 'Blister', 30000);
+(9, 'Bromheksin', 'Blister', 30000),
+(10, 'Panadol', 'Strip', 10000),
+(11, 'Bodrex', 'Strip', 10000);
 
 -- --------------------------------------------------------
 
@@ -199,7 +217,14 @@ INSERT INTO `pasien` (`id`, `nama`, `alamat`, `no_ktp`, `no_hp`, `no_rm`) VALUES
 (8, 'Pardi', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999123', '081462226840', '202401-008'),
 (9, 'Shinta Azzahra', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999124', '081462226836', '202401-009'),
 (10, 'Riska', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999125', '081462226835', '202401-010'),
-(11, 'Sinta komala sari', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999126', '081462226839', '202401-011');
+(11, 'Sinta komala sari', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999126', '081462226839', '202401-011'),
+(12, 'Bahrudin Jusuf Hasnawi', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999127', '081462226835', '202401-012'),
+(13, 'Budianto', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999128', '081462226836', '202401-013'),
+(14, 'Ricardus', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999129', '081462226836', '202401-014'),
+(15, 'Renjino', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999130', '081462226835', '202401-015'),
+(16, 'Bejo', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999131', '081462226835', '202401-016'),
+(17, 'Ari', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999132', '081462226835', '202401-017'),
+(19, 'Budiman', 'Jl. Bandungan RT 02 RW 01 no.21 Kec.Gajahmungkur Kab.Semarang', '3328101999133', '081462226840', '202401-018');
 
 -- --------------------------------------------------------
 
@@ -225,12 +250,16 @@ INSERT INTO `periksa` (`id`, `id_daftar_poli`, `tgl_periksa`, `catatan`, `biaya_
 (3, 6, '2024-01-05 14:20:00', 'Diminum obatnya jangan cape\"', 153000),
 (4, 3, '2024-01-04 14:00:00', 'Diminum obatnya jangan sering pakai cuttonbad', 170000),
 (5, 4, '2024-01-04 08:30:00', 'Diminum rutin ya obatnya', 153000),
-(6, 5, '2024-01-01 09:00:00', 'Diminum obatnya jangan cape\" istirahat yang cukup', 155000),
 (7, 7, '2024-01-02 14:00:00', 'Diminum rutin obatnya dan Istirahat yang cukup', 166000),
 (8, 8, '2024-01-03 10:10:00', 'Diminumrutin obatnya jangan cape\" istirahat yang cukup', 158000),
 (9, 9, '2024-01-06 09:00:00', 'Diminum rutin obatnya , banyakin minum vitamin sama susu dan jangan cape\" istirahat yang cukup', 166000),
 (10, 10, '2024-01-03 09:00:00', 'Diminum obatnya jangan cape\" istirahat yang cukup', 160000),
-(11, 11, '2024-01-02 09:00:00', 'Diminum obatnya jangan cape\" istirahat yang cukup', 170000);
+(11, 11, '2024-01-02 09:00:00', 'Diminum obatnya jangan cape\" istirahat yang cukup', 170000),
+(14, 15, '2024-01-05 15:09:00', 'Diminum obatnya jangan sering pakai cuttonbad', 166000),
+(15, 16, '2024-01-05 15:18:00', 'Diminum obatnya jangan cape\"', 180000),
+(20, 5, '2024-01-06 22:45:00', 'Diminum obatnya jangan cape\" istirahat yang cukup', 160000),
+(29, 17, '2024-01-06 12:00:00', 'Diminum obatnya jangan makan sembarangan', 166000),
+(30, 16, '2024-01-08 01:14:00', 'Diminum obatnya jangan cape\" istirahat yang cukup', 160000);
 
 -- --------------------------------------------------------
 
@@ -276,7 +305,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`) VALUES
 (1, 'Bagas', 'segomagelang', '$2y$10$PQ8tKj/Vdhb76nkP.QMwQOrGDf8yA4lQctYi5Jlv.3gtxWT03j14i'),
-(2, 'Masduki', 'msdki', '$2y$10$LDs0oemg.1SsKTtfpj9xi.A3WSxGhlINZwq6hqRpi5HlIKFhDljBu');
+(2, 'Masduki', 'msdki', '$2y$10$LDs0oemg.1SsKTtfpj9xi.A3WSxGhlINZwq6hqRpi5HlIKFhDljBu'),
+(3, 'bagas', 'bagas1332', '$2y$10$HX9RJe/kDzbP.TBYfEE6v.4eZB6o74DtBWJHoOdqddA7bO5Ar.mce'),
+(4, 'bagas', 'raeyn', '$2y$10$qCt.5ghKrCqGwZDX2MXW9u1X.25DCEXaYS4VjqhK948aLG56Dv85y');
 
 --
 -- Indexes for dumped tables
@@ -351,55 +382,55 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `daftar_poli`
 --
 ALTER TABLE `daftar_poli`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `detail_periksa`
 --
 ALTER TABLE `detail_periksa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `jadwal_periksa`
 --
 ALTER TABLE `jadwal_periksa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `periksa`
 --
 ALTER TABLE `periksa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `poli`
 --
 ALTER TABLE `poli`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
